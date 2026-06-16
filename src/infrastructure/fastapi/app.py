@@ -11,6 +11,6 @@ app.mount("/static", CachedStaticFiles(directory=config.STATIC_DIR), name="stati
 from src.infrastructure.fastapi.routes.main_routes import router as main_router
 from src.infrastructure.fastapi.routes.seo_routes import router as seo_router
 
-# Añadimos prefijo para evitar colisiones con rutas como /dev/preview/...
-app.include_router(seo_router, prefix="/seo")
+# Eliminamos el prefijo para respetar la estructura de URLs solicitada
+app.include_router(seo_router)
 app.include_router(main_router)
