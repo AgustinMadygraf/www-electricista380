@@ -14,3 +14,8 @@
 
 ## Optimización
 - Los activos estáticos utilizan cabeceras Cache-Control (7 días).
+
+## Despliegue Continuo (CD)
+- El despliegue está automatizado mediante GitHub Actions al hacer push a la rama `main`.
+- El flujo utiliza `scripts/deploy-server.sh` en el VPS para actualizar código, dependencias, aplicar *cache busting* y reiniciar el servicio `systemd`.
+- Requiere los siguientes secretos configurados en GitHub: `SSH_HOST`, `SSH_PRIVATE_KEY`.
