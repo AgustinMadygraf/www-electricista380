@@ -1,10 +1,16 @@
 #!/bin/bash
 set -e
-echo "Iniciando despliegue..."
-cd /root/fitba_impacto_economico
-git pull origin main
-./.venv/bin/pip install -r backend/requirements.txt
-TIMESTAMP=$(date +%s)
-sed -i "s/v=[0-9]*/v=$TIMESTAMP/g" backend/frontend/index.html
-systemctl restart fitba-impacto-economico.service
+
+# Cargar configuración desde .env.deploy
+if [ -f "scripts/.env.deploy" ]; then
+    source scripts/.env.deploy
+else
+    echo "Error: scripts/.env.deploy no encontrado."
+    exit 1
+fi
+
+echo "Iniciando despliegue de Electricista 380 en $DEPLOY_SSH_HOST..."
+
+ssh -p $DEPLOY_SSH_PORT $DEPLOY_SSH_USER@$DEPLOY_SSH_HOST "cd $DEPLOY_REMOTE_DIR && git pull && ./venv/bin/pip install -r requirements.txt && systemctl restart electricista380.service"
+
 echo "Despliegue exitoso."
