@@ -1,0 +1,11 @@
+<section id="faq" class="faq">
+    <h2>Preguntas Frecuentes</h2>
+    {% for item in faq %}
+    <details class="faq-card">
+        <summary>{{ item.pregunta }}</summary>
+        <div class="content-wrapper">
+            <p>{{ item.respuesta }}</p>
+        </div>
+    </details>
+    {% endfor %}
+</section>

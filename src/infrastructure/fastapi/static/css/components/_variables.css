@@ -1,0 +1,16 @@
+/* 
+ * Variables globales y reset básico.
+ * Uso: Global (importado en main.css)
+ */
+:root {
+    /* Ajustado para mejorar contraste - Naranja más saturado/oscuro */
+    --electric-orange: #E67E00; 
+    --slate-grey: #2F4F4F;
+    --white: #FFFFFF;
+    --light-grey: #F4F4F4;
+    /* Azul más visible para el anillo de foco */
+    --focus-ring: #0056b3; 
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; line-height: 1.6; margin: 0; padding: 0; color: #1a1a1a; }

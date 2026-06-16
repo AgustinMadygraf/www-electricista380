@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ negocio.titulo_pagina }}</title>
+    <link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/main.css">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "{{ negocio.nombre }}",
+      "description": "{{ negocio.descripcion }}",
+      "telephone": "{{ negocio.telefono }}",
+      "priceRange": "{{ negocio.rango_precios }}"
+    }
+    </script>
+</head>
+<body>
+    {% include 'partials/header.html' %}
+    {% include 'partials/hero.html' %}
+    {% include 'partials/servicios.html' %}
+    {% include 'partials/faq.html' %}
+    {% include 'partials/footer.html' %}
+
+    <div id="chatwoot-config" 
+         data-base-url="{{ negocio.chatwoot.base_url }}" 
+         data-website-token="{{ chatwoot_token }}">
+    </div>
+    <script src="/static/js/app.js"></script>
+    {% if config.GOOGLE_ANALYTICS_ID or config.CLARITY_ID %}
+        {% include "partials/cookie-banner.html" %}
+    {% endif %}
+</body>
+</html>

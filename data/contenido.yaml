@@ -1,0 +1,33 @@
+negocio:
+  nombre: "Electricista 380"
+  titulo_pagina: "Electricista 380 - Soluciones Profesionales"
+  hero_titulo: "Solución inmediata a tus problemas eléctricos"
+  telefono: "+54 11 5629-7160"
+  whatsapp_link: "https://wa.me/5491156297160"
+  descripcion: "Solución inmediata a tus problemas eléctricos. Profesional certificado, rápido y seguro. Disponibilidad 24/7."
+  rango_precios: "$$"
+  cta_whatsapp: "¡Solicitar Presupuesto!"
+  cta_llamada: "Llamar Ahora"
+  seo_description: "Electricista 380 ofrece servicios de reparación e instalación eléctrica profesional 24/7. Rápido, seguro y certificado."
+  og_image: "/static/img/og-image.jpg"
+  chatwoot:
+    base_url: "https://chatwoot.datamaq.com.ar"
+
+servicios:
+  - nombre: "Instalación Eléctrica"
+    descripcion: "Instalación completa de sistemas eléctricos para hogares."
+    precio: "Consultar"
+  - nombre: "Reparación de Averías"
+    descripcion: "Solución rápida a cortocircuitos y fallas eléctricas."
+    precio: "Consultar"
+  - nombre: "Mantenimiento"
+    descripcion: "Revisión preventiva de tableros y cableado."
+    precio: "Consultar"
+
+faq:
+  - pregunta: "¿Ofrecen servicios de urgencia 24/7?"
+    respuesta: "Sí, estamos disponibles las 24 horas, los 7 días de la semana para atender cualquier emergencia eléctrica."
+  - pregunta: "¿Están certificados?"
+    respuesta: "Absolutamente, contamos con todas las certificaciones y licencias necesarias para realizar trabajos eléctricos seguros y legales."
+  - pregunta: "¿Cubren mi zona?"
+    respuesta: "Atendemos en toda el área metropolitana. Contáctanos para confirmar tu dirección específica."

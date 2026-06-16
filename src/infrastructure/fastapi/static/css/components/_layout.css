@@ -1,0 +1,18 @@
+/* 
+ * Estilos de layout: Header, Footer, Hero.
+ * Uso:
+ * - .sticky-header: header.html
+ * - .hero: hero.html
+ * - footer: footer.html
+ */
+.sticky-header { 
+    position: sticky; top: 0; z-index: 1000;
+    padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; 
+    background: var(--white); box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+}
+.sticky-header nav a { margin-right: 1.5rem; text-decoration: none; color: var(--slate-grey); font-weight: bold; }
+
+.hero { background: var(--slate-grey); color: var(--white); padding: 4rem 2rem; text-align: center; }
+.hero h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+
+footer { background: var(--slate-grey); color: var(--white); text-align: center; padding: 2rem; margin-top: 2rem; }
