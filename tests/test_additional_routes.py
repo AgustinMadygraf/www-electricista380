@@ -4,12 +4,33 @@ from src.infrastructure.fastapi.app import app
 from src.infrastructure.fastapi.dependencies import get_contenido, get_chatwoot_token
 from src.domain.models import ContenidoModel
 
-# Mock data
+# Mock data actualizado a la nueva estructura
 async def override_get_contenido():
     return ContenidoModel(
-        negocio={"nombre": "Test", "titulo_pagina": "Test", "hero_titulo": "Test", "telefono": "123", "whatsapp_link": "http://test.com", "descripcion": "Test", "rango_precios": "$", "cta_whatsapp": "Test", "cta_llamada": "Test", "seo_description": "Test", "og_image": "test.jpg", "chatwoot": {"base_url": "test"}},
-        servicios=[],
-        faq=[]
+        brand={
+            "brandName": "Test",
+            "brandAriaLabel": "Test",
+            "baseOperativa": "Test",
+            "contactEmail": "test@test.com",
+            "whatsappUrl": "http://test.com",
+            "technician": {"name": "Test", "role": "Test", "photo": {"src": "test.jpg", "alt": "Test"}}
+        },
+        content={
+            "hero": {
+                "badge": "Test", "title": "Test", "subtitle": "Test", "responseNote": "Test",
+                "primaryCta": {"label": "Test", "href": "http://test.com"},
+                "secondaryCta": {"label": "Test", "href": "http://test.com"},
+                "benefits": [],
+                "image": {"src": "test.jpg", "alt": "Test"}
+            },
+            "services": {"title": "Test", "cards": []},
+            "navbar": {"links": []},
+            "faq": {"questions": []},
+            "about": {"title": "Test", "paragraphs": [], "image": {"src": "test.jpg", "alt": "Test"}},
+            "profile": {"bullets": []},
+            "legal": {"text": "Test"}
+        },
+        seo={"siteDescription": "Test", "siteName": "Test", "siteUrl": "http://test.com"}
     )
 
 async def override_get_chatwoot_token():

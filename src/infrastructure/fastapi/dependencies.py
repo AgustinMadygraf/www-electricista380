@@ -48,4 +48,4 @@ def get_static_version_hash() -> str:
 
 templates.env.globals["static_version"] = get_static_version_hash  # type: ignore[index]
 templates.env.globals["config"] = config  # type: ignore[index]
-templates.env.globals["now"] = datetime.now()  # type: ignore[index]
+templates.env.globals["year"] = datetime.now().year
