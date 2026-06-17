@@ -71,3 +71,13 @@
     height: auto;
     border-radius: 1rem;
 }
+
+.c-home-hero__urgency {
+    font-size: 0.95rem;
+    color: var(--dm-text-muted);
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border-left: 3px solid var(--dm-primary);
+    background: rgba(var(--dm-surface-0-rgb), 0.5);
+    border-radius: 0 8px 8px 0;
+}
