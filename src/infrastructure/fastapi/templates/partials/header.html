@@ -1,10 +1,24 @@
-<header class="sticky-header">
-    <div class="logo"><strong>{{ negocio.nombre }}</strong></div>
-    <nav>
-        <a href="#servicios">Servicios</a>
-        <a href="#faq">FAQ</a>
-    </nav>
-    <button onclick="openChatwoot()" class="cta-button primary" aria-label="Abrir chat de soporte">
-        {{ negocio.cta_whatsapp }}
-    </a>
+<header class="c-home-header" role="banner">
+    <div class="c-home-header__inner">
+        <a href="/" class="c-home-header__brand" aria-label="{{ negocio.nombre }}, inicio">
+            <span class="c-home-header__brand-icon" aria-hidden="true">
+                <i class="bi bi-terminal-fill"></i>
+            </span>
+            <span class="c-home-header__brand-copy">{{ negocio.nombre }}</span>
+        </a>
+        
+        <nav class="c-home-header__nav" aria-label="Navegación principal">
+            <a href="#servicios" class="c-home-header__nav-link">Solución</a>
+            <a href="#faq" class="c-home-header__nav-link">FAQ</a>
+        </nav>
+        
+        <div class="c-home-header__actions">
+            <a href="javascript:void(0)" onclick="openChatwoot()" class="c-home-header__icon-link" aria-label="Contacto" title="Contacto">
+                <i class="bi bi-telephone-forward-fill" aria-hidden="true"></i>
+            </a>
+            <button type="button" onclick="openChatwoot()" class="cta-button primary c-home-header__cta">
+                Contacto
+            </button>
+        </div>
+    </div>
 </header>

@@ -1,0 +1,77 @@
+/* Componente: Header DataMaq */
+.c-home-header {
+    background-color: var(--white);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+}
+.c-home-header__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0.75rem 1.25rem;
+}
+.c-home-header__brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: var(--slate-grey);
+    font-weight: 700;
+}
+.c-home-header__brand-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--electric-orange);
+}
+.c-home-header__brand-copy {
+    font-size: 1.4rem;
+    line-height: 1;
+}
+.c-home-header__nav {
+    display: none;
+    gap: 1.5rem;
+}
+.c-home-header__nav-link {
+    text-decoration: none;
+    color: var(--slate-grey);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+}
+.c-home-header__nav-link:hover {
+    color: var(--electric-orange);
+}
+.c-home-header__actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.c-home-header__icon-link {
+    color: var(--electric-orange);
+    font-size: 1.5rem;
+    display: flex;
+}
+.c-home-header__cta {
+    display: none;
+    padding: 0.6rem 1.25rem;
+    font-size: 0.9rem;
+}
+@media (min-width: 1024px) {
+    .c-home-header__nav {
+        display: flex;
+    }
+    .c-home-header__icon-link {
+        display: none;
+    }
+    .c-home-header__cta {
+        display: inline-flex;
+    }
+}
