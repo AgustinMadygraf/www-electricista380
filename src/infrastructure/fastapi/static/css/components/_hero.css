@@ -81,3 +81,6 @@
     background: rgba(var(--dm-surface-0-rgb), 0.5);
     border-radius: 0 8px 8px 0;
 }
+.c-home-hero--direct { padding: 4rem 1.5rem; }
+.c-home-hero__media-label { font-size: 0.8rem; color: var(--dm-text-muted); text-transform: uppercase; margin-bottom: 0.5rem; }
+.c-home-hero__prefill { font-size: 0.85rem; color: var(--dm-text-muted); font-style: italic; margin-top: 0.5rem; }
