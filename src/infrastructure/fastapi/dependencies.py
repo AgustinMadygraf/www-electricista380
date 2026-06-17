@@ -1,16 +1,17 @@
+from typing import Any, Dict, cast
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import Response
 from starlette.types import Scope
 from src.infrastructure.settings import config
+from src.infrastructure.settings.logger import setup_logger
 from src.application.data_service import DataService
 import subprocess
 import time
-import logging
 import os
 from datetime import datetime
 
-logger = logging.getLogger(config.LOGGER_NAME)
+logger = setup_logger(config.LOGGER_NAME)
 
 # --- Instancias compartidas ---
 
@@ -21,6 +22,7 @@ class CachedStaticFiles(StaticFiles):
         return response
 
 templates = Jinja2Templates(directory=config.TEMPLATES_DIR)
+templates.env.globals = cast(Dict[str, Any], templates.env.globals)  # type: ignore[assignment]
 
 # --- Configuración del Servicio de Datos ---
 data_service = DataService(
@@ -29,7 +31,7 @@ data_service = DataService(
     industry_path=os.path.join(os.path.dirname(config.CONTENT_DATA_PATH), "industrias.yaml")
 )
 
-# --- Dependencias de Datos (Puente a la Capa de Aplicación) ---
+# --- Dependencias de Datos ---
 def get_contenido(): return data_service.get_contenido()
 def get_geografia(): return data_service.get_geografia()
 def get_industrias(): return data_service.get_industrias()
@@ -44,6 +46,6 @@ def get_static_version_hash() -> str:
         logger.warning(f"No se pudo obtener el hash de git. Error: {e}. Usando timestamp.")
         return str(int(time.time()))
 
-templates.env.globals["static_version"] = get_static_version_hash # type: ignore
-templates.env.globals["config"] = config
-templates.env.globals["now"] = datetime.now # type: ignore
+templates.env.globals["static_version"] = get_static_version_hash  # type: ignore[index]
+templates.env.globals["config"] = config  # type: ignore[index]
+templates.env.globals["now"] = datetime.now()  # type: ignore[index]

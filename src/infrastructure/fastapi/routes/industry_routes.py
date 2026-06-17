@@ -12,14 +12,18 @@ async def pagina_industria(request: Request, industria: str, contenido: Contenid
     
     if not nombre_industria:
         raise HTTPException(status_code=404, detail="Industria no encontrada")
+    
+    brand_data = contenido.brand.model_dump()
+    servicios_data = [s.model_dump() for s in contenido.content.services.cards]
+    industria_formateada = industria.replace("-", " ").title()
         
     context: Dict[str, Any] = {
-        "negocio": contenido.negocio.model_dump(),
-        "servicios": [s.model_dump() for s in contenido.servicios],
-        "faq": contenido.faq,
+        "brand": brand_data,
+        "servicios": servicios_data,
+        "faq": contenido.content.faq.questions,
         "chatwoot_token": chatwoot_token,
         "industria_nombre": nombre_industria,
         "seo_titulo": f"Electricista especializado en {nombre_industria} - Urgencias 24/7",
-        "seo_descripcion": f"¿Necesitas soluciones eléctricas para {nombre_industria}? Servicio profesional certificado, rápido y seguro. Atención 24/7."
+        "seo_descripcion": f"¿Necesitas un electricista en {nombre_industria}? Servicio profesional certificado en {industria_formateada}. Atención rápida, segura y 24/7."
     }
     return templates.TemplateResponse(request=request, name="index.html", context=context)
