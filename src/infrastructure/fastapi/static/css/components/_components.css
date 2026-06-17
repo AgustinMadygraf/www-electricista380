@@ -113,3 +113,15 @@
 .c-home-profile__benefits-grid { display: grid; gap: 1rem; margin-top: 2rem; }
 .c-home-profile__benefit-card { display: flex; align-items: flex-start; gap: 1rem; padding: 1rem; background: rgba(var(--dm-bg-0-rgb), 0.3); border-radius: 1rem; }
 .c-home-profile__benefit-icon { color: var(--dm-primary); font-size: 1.2rem; }
+
+/* Componente FAQ DataMaq */
+.c-home-faq { padding: 4rem 1.5rem; max-width: 900px; margin: 0 auto; }
+.c-home-section-head { margin-bottom: 2rem; }
+.c-home-section-title { font-size: 2rem; font-weight: 800; }
+.c-home-faq__stack { display: flex; flex-direction: column; gap: 1rem; }
+.c-home-faq__item { background: var(--dm-surface); border: 1px solid var(--dm-border); border-radius: 1rem; padding: 1.5rem; }
+.c-home-faq__summary { display: flex; justify-content: space-between; align-items: center; font-weight: 600; cursor: pointer; list-style: none; }
+.c-home-faq__summary::-webkit-details-marker { display: none; }
+.c-home-faq__toggle { font-size: 1.25rem; color: var(--dm-primary); transition: transform 0.3s; }
+.c-home-faq__item[open] .c-home-faq__toggle { transform: rotate(45deg); }
+.c-home-faq__answer { margin-top: 1rem; color: var(--dm-text-muted); padding-top: 1rem; border-top: 1px solid var(--dm-border); }

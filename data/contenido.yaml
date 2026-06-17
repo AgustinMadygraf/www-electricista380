@@ -7,7 +7,11 @@ brand:
   technician:
     name: "Agustin Bustos"
     role: "Técnico a cargo"
-    photo: "/static/media/tecnico-a-cargo.webp"
+    photo:
+      src: "/static/media/tecnico-a-cargo.webp"
+      alt: "Foto del técnico a cargo"
+      width: 100
+      height: 100
 
 content:
   hero:
@@ -31,6 +35,8 @@ content:
     image:
       src: "/static/media/hero-energy.svg"
       alt: "Captura e integración de datos energéticos y operativos en entorno industrial"
+      width: 900
+      height: 700
 
   services:
     title: "Servicios técnicos sobre captura, integración y uso de datos"
@@ -86,12 +92,20 @@ content:
     paragraphs:
       - "DataMaq trabaja sobre captura automática de datos operativos, con foco en energía eléctrica, producción y variables críticas de seguimiento."
       - "El servicio combina relevamiento en campo, implementación técnica, integración inicial y acompañamiento para que los datos capturados puedan usarse con criterio en análisis, seguimiento o capacitación."
+    image:
+      src: "/static/media/tecnico-a-cargo.webp"
+      alt: "Técnico a cargo de la implementación"
+      width: 700
+      height: 933
   
   profile:
     bullets:
       - "Relevamiento en sitio y criterio de implementación."
       - "Instalación, integración y puesta en marcha para captura automática de datos."
       - "Asesoramiento y capacitaciones sobre Python, datos, bases de datos y APIs en contextos reales."
+  
+  legal:
+    text: "La información publicada es referencial y puede actualizarse según alcance, tablero, señales disponibles, conectividad, sistema destino y condiciones de implementación."
 
 seo:
   siteDescription: "Instalación e integración de equipos IoT para captura automática de datos de energía y producción, más asesoramiento técnico y capacitaciones aplicadas."

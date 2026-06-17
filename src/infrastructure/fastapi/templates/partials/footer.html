@@ -1,18 +1,12 @@
-<footer class="footer">
-    <div class="footer-content">
-        <div class="footer-brand">
-            <strong>{{ brand.brandName }}</strong>
-            <p>{{ brand.baseOperativa }}</p>
+<footer class="c-home-footer" role="contentinfo">
+    <div class="tw:container tw:mx-auto tw:px-4">
+        <div class="c-home-footer__shell">
+            <div>
+                <p class="c-home-footer__brand">{{ brand.brandName }}</p>
+                <p class="c-home-footer__note">&copy; {{ now().year }} {{ brand.brandName }} | {{ brand.baseOperativa }}</p>
+            </div>
+            <p class="c-home-footer__legal">{{ content.legal.text }}</p>
+            <a class="c-home-footer__whatsapp" href="{{ brand.whatsappUrl }}" target="_blank" rel="noopener noreferrer">Escribime</a>
         </div>
-        <div class="footer-technician">
-            <p><strong>{{ brand.technician.name }}</strong></p>
-            <p>{{ brand.technician.role }}</p>
-        </div>
-        <div class="footer-contact">
-            <a href="mailto:{{ brand.contactEmail }}">{{ brand.contactEmail }}</a>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <p>&copy; {{ now().year }} DataMaq. Todos los derechos reservados.</p>
     </div>
 </footer>

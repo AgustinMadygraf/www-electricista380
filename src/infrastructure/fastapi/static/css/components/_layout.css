@@ -116,3 +116,13 @@ footer { background: var(--slate-grey); color: var(--white); text-align: center;
     .hero-actions { flex-direction: column; width: 100%; }
     .hero-actions .cta-button { width: 100%; }
 }
+
+/* Footer DataMaq */
+.c-home-footer { background: var(--dm-surface); padding: 3rem 1.5rem; border-top: 1px solid var(--dm-border); }
+.c-home-footer__shell { display: flex; flex-direction: column; gap: 2rem; align-items: center; text-align: center; }
+.c-home-footer__brand { font-weight: 800; font-size: 1.5rem; margin: 0; }
+.c-home-footer__note { font-size: 0.9rem; color: var(--dm-text-muted); }
+.c-home-footer__legal { font-size: 0.8rem; color: var(--dm-text-muted); max-width: 600px; }
+.c-home-footer__whatsapp { color: var(--dm-primary); font-weight: 600; text-decoration: none; }
+.c-home-footer__whatsapp:hover { text-decoration: underline; }
+

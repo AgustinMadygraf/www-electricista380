@@ -5,11 +5,13 @@ from pydantic import BaseModel
 class PhotoModel(BaseModel):
     src: str
     alt: str
+    width: Optional[int] = None
+    height: Optional[int] = None
 
 class TechnicianModel(BaseModel):
     name: str
     role: str
-    photo: str
+    photo: PhotoModel
 
 class CtaModel(BaseModel):
     label: str
@@ -34,7 +36,7 @@ class BrandModel(BaseModel):
     baseOperativa: str
     contactEmail: str
     whatsappUrl: str
-    technician: Optional[TechnicianModel] = None
+    technician: TechnicianModel
 
 class HeroModel(BaseModel):
     badge: str
@@ -65,16 +67,20 @@ class FaqModel(BaseModel):
 class AboutModel(BaseModel):
     title: str
     paragraphs: List[str]
+    image: PhotoModel
 
 class ProfileModel(BaseModel):
     bullets: List[str]
+
+class LegalModel(BaseModel):
+    text: str
 
 class SeoModel(BaseModel):
     siteDescription: str
     siteName: str
     siteUrl: str
 
-# --- Modelos Principales (Deben ir después de sus componentes) ---
+# --- Modelos Principales ---
 class ContentModel(BaseModel):
     hero: HeroModel
     services: ServicesModel
@@ -82,6 +88,7 @@ class ContentModel(BaseModel):
     faq: FaqModel
     about: AboutModel
     profile: ProfileModel
+    legal: LegalModel
 
 class ContenidoModel(BaseModel):
     brand: BrandModel
