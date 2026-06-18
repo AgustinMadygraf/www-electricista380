@@ -76,9 +76,11 @@ class LegalModel(BaseModel):
     text: str
 
 class SeoModel(BaseModel):
-    siteDescription: str
-    siteName: str
-    siteUrl: str
+    title: str
+    description: str
+    canonical_url: str
+    site_name: str
+    og_image: Optional[str] = None
 
 # --- Modelos Principales ---
 class ContentModel(BaseModel):
