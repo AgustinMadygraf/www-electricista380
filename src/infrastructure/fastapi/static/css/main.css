@@ -4,6 +4,7 @@
  */
 
 :root {
+    -webkit-locale: "es";
     --tw-font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --tw-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     --tw-color-red-200: oklch(88.5% .062 18.334);
@@ -44,7 +45,18 @@
     --tw-blur-md: 12px;
     --tw-default-font-family: var(--tw-font-sans);
     --tw-default-mono-font-family: var(--tw-font-mono);
-    
+    box-sizing: border-box;
+    border: 0 solid;
+    margin: 0;
+    padding: 0;
+    -webkit-text-size-adjust: 100%;
+    tab-size: 4;
+    line-height: 1.5;
+    font-family: var(--tw-default-font-family,ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");
+    font-feature-settings: var(--tw-default-font-feature-settings,normal);
+    font-variation-settings: var(--tw-default-font-variation-settings,normal);
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
     --dm-bg-0: #0c092f;
     --dm-bg-1: #0b2766;
     --dm-bg-2: #155697;
@@ -74,10 +86,11 @@
     --dm-border-1-rgb: 64, 82, 127;
     --dm-surface-0-rgb: 15, 27, 58;
     --dm-surface-1-rgb: 19, 36, 73;
-    
+    color-scheme: dark;
     --bs-primary: var(--dm-data-cyan);
     --bs-primary-rgb: var(--dm-data-cyan-rgb);
     --bs-success: var(--dm-data-cyan);
+    --bs-success-rgb: var(--dm-data-cyan-rgb);
     --bs-warning: var(--dm-accent-orange);
     --bs-warning-rgb: var(--dm-accent-orange-rgb);
     --bs-info: var(--dm-line-blueprint);
@@ -86,7 +99,6 @@
     --bs-body-color: var(--dm-text-0);
     --bs-emphasis-color: var(--dm-text-0);
     --bs-secondary-color: rgba(var(--dm-text-0-rgb), .75);
-    
     --ui-color-bg: var(--dm-bg-0);
     --ui-color-surface: rgba(var(--dm-bg-0-rgb), .65);
     --ui-surface-blur: blur(12px);
@@ -119,21 +131,18 @@
     --ui-radius-lg: 1rem;
     --ui-shadow-sm: 0 .75rem 1.5rem rgba(var(--dm-shadow-rgb), .2);
     --ui-shadow-md: 0 1.25rem 2.5rem rgba(var(--dm-shadow-rgb), .28);
-    
     --bs-border-radius-lg: 1rem;
     --bs-border-radius: var(--dm-radius-1);
-    
     --bp-sm: 575.98px;
     --bp-md: 767.98px;
     --bp-lg: 991.98px;
-    
     --section-mobile-padding: 3.25rem;
     --section-mobile-gap: 1.75rem;
     --mobile-card-surface: rgba(var(--dm-bg-0-rgb), .92);
     --mobile-card-border: rgba(var(--dm-text-0-rgb), .18);
     --mobile-card-text: rgba(var(--dm-text-0-rgb), .82);
-    
     --ui-letter-spacing-sm: .01em;
+    --floating-safe-area: 0;
     --cookie-banner-height: 0;
     --cookie-banner-visible-height: 6rem;
     --ui-skip-link-bg: var(--dm-data-cyan);
@@ -144,23 +153,5 @@
     --fab-safe-gap: 2.5rem;
     --floating-cta-height: 3.5rem;
     --sticky-header-offset: clamp(4.25rem, 7vw, 5.25rem);
-    
-    --floating-safe-area: calc( var(--floating-cta-height, 3.5rem) + var(--fab-safe-gap, 2.5rem) + env(safe-area-inset-bottom, 0px) );
 }
 
-body {
-    -webkit-text-size-adjust: 100%;
-    tab-size: 4;
-    font-feature-settings: var(--tw-default-font-feature-settings,normal);
-    font-variation-settings: var(--tw-default-font-variation-settings,normal);
-    -webkit-tap-highlight-color: transparent;
-    color-scheme: dark;
-    font-family: var(--ui-font-family-base);
-    color: var(--bs-body-color);
-    font-size: var(--ui-font-size-body);
-    line-height: var(--ui-line-height-body);
-    box-sizing: border-box;
-    border: 0 solid;
-    margin: 0;
-    padding: 0;
-}
