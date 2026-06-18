@@ -8,6 +8,7 @@
 {% import 'partials/components/contact_form.html' as contact_macro %}
 {% import 'partials/components/profile.html' as profile_macro %}
 {% import 'partials/components/whatsapp_fab.html' as fab_macro %}
+{% import 'partials/components/dock.html' as dock_macro %}
 {% import 'partials/components/hero.html' as hero_macro %}
 {{ seo_macro.head_seo(request=request, seo_data=seo) }}
 
@@ -34,10 +35,7 @@
 {{ faq_macro.faq_item('¿Trabajás solo con energía eléctrica?', 'No. La energía es una de las aplicaciones principales, pero también se pueden implementar soluciones para captura de datos de producción u otras variables operativas relevantes.', False) }}
 {{ faq_macro.faq_item('¿Usás Powermeter y Automate?', 'Sí. Según el proyecto, la solución puede apoyarse en Powermeter para medición eléctrica y en Automate para captura e integración de señales y datos operativos.', False) }}
 {{ faq_macro.faq_item('¿También brindás asesoramiento sobre los datos capturados?', 'Sí. El acompañamiento puede incluir estructuración, análisis e interpretación técnica de datos operativos y energéticos, según la necesidad del caso.', False) }}
-</div></div></section>{{ contact_macro.contact_form() }}{{ footer_macro.footer() }}</main><!---->{{ fab_macro.whatsapp_fab('https://wa.me/5491156297160?text=Hola+DataMaq%2C+necesito+asistencia+t%C3%A9cnica+para+%5BTipo+de+Maquina%5D.', 'Abrir WhatsApp para pedir coordinación', 'Abrir WhatsApp') }}<nav data-v-236fef00="" class="c-home-dock tw:lg:hidden c-home-dock--direct" aria-label="Navegación rápida" style="--dock-columns: 2;"><a data-v-236fef00="" aria-current="page" href="/" class="router-link-active router-link-exact-active c-home-dock__link">
-                                                <i data-v-236fef00="" class="bi bi-house-door-fill" aria-hidden="true"></i><span data-v-236fef00="">Inicio</span></a>
-                                                <a data-v-236fef00="" href="/contact" class="c-home-dock__link c-home-dock__link--emergency">
-                                                    <i data-v-236fef00="" class="bi bi-telephone-forward-fill" aria-hidden="true"></i><span data-v-236fef00="">Contacto</span></a></nav></div></div>
+</div></div></section>{{ contact_macro.contact_form() }}{{ footer_macro.footer() }}</main><!---->{{ fab_macro.whatsapp_fab('https://wa.me/5491156297160?text=Hola+DataMaq%2C+necesito+asistencia+t%C3%A9cnica+para+%5BTipo+de+Maquina%5D.', 'Abrir WhatsApp para pedir coordinación', 'Abrir WhatsApp') }}{{ dock_macro.dock([{'href': '/', 'icon': 'bi bi-house-door-fill', 'label': 'Inicio'}, {'href': '/contact', 'icon': 'bi bi-telephone-forward-fill', 'label': 'Contacto'}]) }}</div></div>
 <!--  <script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;ab850807b64648da83ecb0cd0263d779&quot;,&quot;r&quot;:1,&quot;server_timing&quot;:{&quot;name&quot;:{&quot;cfCacheStatus&quot;:true,&quot;cfEdge&quot;:true,&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfOrigin&quot;:true,&quot;cfSpeedBrain&quot;:true},&quot;location_startswith&quot;:null}}" crossorigin="anonymous"></script> -->
 
 
