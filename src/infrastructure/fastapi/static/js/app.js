@@ -66,14 +66,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function loadThirdPartyScripts() {
         console.debug("Ejecutando loadThirdPartyScripts...");
-        const config = document.getElementById("cookie-config");
-        if (!config) {
-            console.error("No se encontró el elemento 'cookie-config', abortando carga de scripts.");
-            return;
-        }
-        
-        const gaId = config.dataset.gaId;
-        const clarityId = config.dataset.clarityId;
+        const gaId = window.APP_CONFIG && window.APP_CONFIG.gaId;
+        const clarityId = window.APP_CONFIG && window.APP_CONFIG.clarityId;
         console.debug("Configuración detectada - GA:", gaId, "Clarity:", clarityId);
         
         // 1. Cargar Google Analytics
