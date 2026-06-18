@@ -1,21 +1,21 @@
 # Arquitectura del Sistema - Datamaq
 
-## Flujo de Datos y Componentización
-Para replicar la modularidad de Vue en un entorno SSR:
+## Visión General
+Migración de SPA (Vue.js) a SSR (FastAPI + Jinja2) priorizando SEO, performance (Core Web Vitals) y simplicidad operativa sin sistemas de compilación de assets.
 
-1.  **Capa de Datos:** Archivos YAML inyectados en el contexto de FastAPI.
-2.  **Capa de Presentación (Macros):** 
-    - Ubicación: `src/infrastructure/fastapi/templates/partials/macros/`.
-    - Patrón: `{{ macro_name(data) }}`.
-3.  **Capa de Comportamiento (JS):** 
-    - Los componentes de JS en `static/js/` se inicializan buscando elementos con atributos `data-component-name`.
-    - La configuración se extrae de atributos `data-config-*`.
+## Flujo de Datos y Estructura
+1.  **Backend:** FastAPI inyecta datos desde archivos YAML (`/data/*.yaml`) en el contexto de Jinja2.
+2.  **Frontend (SSR):**
+    - **Metodología HTML-first:** Definición de estructuras semánticas limpias mediante componentes Jinja2 (`templates/partials/*.html`).
+    - **Estilizado (Pure CSS):** Uso de CSS nativo, sin Tailwind ni preprocesadores que requieran compilación en tiempo de despliegue.
+    - **Interactividad (Progressive Enhancement):** Vanilla JS inyectado mediante scripts modulares (`static/js/`) para interacciones basadas en estados (`.is-active`).
 
 ## Integración RASA
-- El proyecto actúa como **Action Server**.
+- Acción como **Action Server**.
 - Endpoint: `/webhook`.
 - Puerto: 5006.
 
 ## Infraestructura y CD
 - Despliegue automático vía GitHub Actions.
-- Script de despliegue: `scripts/deploy-server.sh`.
+- Script: `scripts/deploy-server.sh`.
+- Servicio Systemd: Manejo directo de Uvicorn (sin capas de compilación).
