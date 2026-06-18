@@ -119,3 +119,50 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 });
+
+// Lógica del Menú Offcanvas Lateral Móvil (Migración Vue a Vanilla JS)
+document.addEventListener('DOMContentLoaded', () => {
+    console.debug("Inicializando menú offcanvas lateral...");
+    const offcanvas = document.getElementById('mainOffcanvas');
+    const toggleBtn = document.querySelector('[data-action="toggle-offcanvas"]');
+    const closeElements = document.querySelectorAll('[data-action="close-offcanvas"]');
+
+    if (!offcanvas || !toggleBtn) {
+        console.warn("Elementos del offcanvas no encontrados en la página.");
+        return;
+    }
+
+    function openMenu() {
+        console.debug("Abriendo offcanvas.");
+        offcanvas.classList.add('is-active');
+        offcanvas.setAttribute('aria-hidden', 'false');
+        toggleBtn.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+        console.debug("Cerrando offcanvas.");
+        offcanvas.classList.remove('is-active');
+        offcanvas.setAttribute('aria-hidden', 'true');
+        toggleBtn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+    }
+
+    toggleBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openMenu();
+    });
+
+    closeElements.forEach(el => {
+        el.addEventListener('click', () => {
+            closeMenu();
+        });
+    });
+
+    // Cerrar con tecla Escape
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && offcanvas.classList.contains('is-active')) {
+            closeMenu();
+        }
+    });
+});

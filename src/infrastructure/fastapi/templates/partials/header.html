@@ -1,25 +1,91 @@
-<header class="c-home-header" role="banner">
-    <div class="c-home-header__inner">
-        <a href="/" class="c-home-header__brand" aria-label="{{ brand.brandAriaLabel }}">
-            <span class="c-home-header__brand-icon" aria-hidden="true">
-                <i class="bi bi-terminal-fill"></i>
-            </span>
-            <span class="c-home-header__brand-copy">{{ brand.brandName }}</span>
+<header class="c-navbar" role="banner">
+    <div class="c-navbar__inner">
+        <!-- Brand / Logo Replicado con Isotipo Concéntrico Complejo -->
+        <a class="c-navbar__brand" href="#" aria-label="{{ brand.brandAriaLabel }}">
+            <div class="c-navbar__brand-logo" aria-hidden="true">
+                <div class="c-navbar__logo-rect">
+                    <span class="c-navbar__logo-char">&gt;_</span>
+                </div>
+            </div>
+            <span class="c-navbar__brand-text">datamaq</span>
         </a>
         
-        <nav class="c-home-header__nav" aria-label="Navegación principal">
-            {% for link in content.navbar.links %}
-            <a href="{{ link.href }}" class="c-home-header__nav-link">{{ link.label }}</a>
-            {% endfor %}
-        </nav>
-        
-        <div class="c-home-header__actions">
-            <a href="{{ brand.whatsappUrl }}" target="_blank" rel="noopener noreferrer" class="c-home-header__icon-link" aria-label="WhatsApp" title="WhatsApp">
-                <i class="bi bi-whatsapp" aria-hidden="true"></i>
+        <!-- Contenedor de Acciones Móviles (Teléfono + Hamburguesa) -->
+        <div class="c-navbar__mobile-actions">
+            <!-- Acceso Directo de Teléfono / Contacto Legacy -->
+            <a 
+                class="c-navbar__phone-cta" 
+                href="#contacto" 
+                aria-label="Ir a la sección de contacto"
+                title="Contacto"
+            >
+                <svg viewBox="0 0 24 24" width="22" height="22">
+                    <path d="M6.62 10.79a15.15 15.15 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24 11.4 11.4 0 003.66.58 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.4 11.4 0 00.58 3.66 1 1 0 01-.24 1.02l-2.22 2.2z"/>
+                </svg>
             </a>
-            <a href="{{ brand.whatsappUrl }}" target="_blank" rel="noopener noreferrer" class="cta-button primary c-home-header__cta">
-                Contactar por WhatsApp
-            </a>
+
+            <button
+                class="c-navbar__toggle"
+                type="button"
+                aria-expanded="false"
+                aria-label="Abrir navegación"
+                data-action="toggle-offcanvas"
+            >
+                <svg viewBox="0 0 24 24" width="24" height="24">
+                    <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                </svg>
+            </button>
         </div>
+
+        <nav class="c-navbar__nav-desktop" aria-label="Navegación principal">
+            <ul class="c-navbar__links">
+                {% for link in content.navbar.links %}
+                <li>
+                    <a class="c-navbar__link" href="{{ link.href }}">{{ link.label }}</a>
+                </li>
+                {% endfor %}
+                <li>
+                    <a class="c-navbar__cta" href="#contacto">
+                        Contactar
+                    </a>
+                </li>
+            </ul>
+        </nav>
     </div>
 </header>
+
+<!-- Menú Offcanvas Lateral Móvil -->
+<div id="mainOffcanvas" class="c-offcanvas" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="c-offcanvas__backdrop" data-action="close-offcanvas"></div>
+    <div class="c-offcanvas__panel">
+        <div class="c-offcanvas__header">
+            <h5 class="c-offcanvas__title" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                <div class="c-navbar__brand-logo" style="width: 2rem; height: 2rem;" aria-hidden="true">
+                    <div class="c-navbar__logo-rect" style="width: 1.4rem; height: 1.1rem; border-radius: 3px;">
+                        <span class="c-navbar__logo-char" style="font-size: 0.85rem;">&gt;_</span>
+                    </div>
+                </div>
+                <span style="font-weight: 600;">datamaq</span>
+            </h5>
+            <button class="c-offcanvas__close" type="button" aria-label="Cerrar navegación" data-action="close-offcanvas">
+                <svg viewBox="0 0 16 16" width="20" height="20">
+                    <path d="M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z"/>
+                </svg>
+            </button>
+        </div>
+        <div class="c-offcanvas__body">
+            <ul class="c-offcanvas__links">
+                {% for link in content.navbar.links %}
+                <li>
+                    <a class="c-offcanvas__link" href="{{ link.href }}" data-action="close-offcanvas">{{ link.label }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+            <div class="c-offcanvas__actions">
+                <a class="c-navbar__cta" style="margin-left: 0; display: block; text-align: center;" href="#contacto" data-action="close-offcanvas">
+                    Contactar
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
