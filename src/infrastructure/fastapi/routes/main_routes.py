@@ -19,7 +19,7 @@ async def sitemap(request: Request):
         media_type="application/xml"
     )
 
-@router.get("/dev/preview/{partial_name}")
+@router.get("/dev/preview/{partial_name:path}")
 async def preview(request: Request, partial_name: str, contenido: ContenidoModel = Depends(get_contenido), chatwoot_token: str = Depends(get_chatwoot_token)):
     context: Dict[str, Any] = {
         "brand": contenido.brand.model_dump(),

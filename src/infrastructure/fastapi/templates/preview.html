@@ -4,16 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Preview: {{ partial_name }}</title>
-    <!-- Inter Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <!-- CSS Dependencies from head.html -->
+    <link rel="stylesheet" href="{{ url_for('static', path='css/index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='css/WhatsAppFab.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='css/useContactPageActions.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='css/HomePage.css') }}">
 </head>
+<body class="tw:bg-dm-bg">
 <div id="app" data-v-app="">
     <div class="preview-container">
-        {% include 'partials/' + partial_name + '.html' %}
+        {% import 'partials/components/header.html' as header_macro %}
+        {% import 'partials/components/footer.html' as footer_macro %}
+        {% import 'partials/components/service_card.html' as service_macro %}
+        {% import 'partials/components/faq_item.html' as faq_macro %}
+        {% import 'partials/components/contact_form.html' as contact_macro %}
+        {% import 'partials/components/contact_section.html' as contact_section_macro %}
+        {% import 'partials/components/profile.html' as profile_macro %}
+        {% import 'partials/components/whatsapp_fab.html' as fab_macro %}
+        {% import 'partials/components/dock.html' as dock_macro %}
+        {% import 'partials/components/hero.html' as hero_macro %}
+
+        {% if 'header.html' in partial_name %}
+            {{ header_macro.header() }}
+        {% elif 'footer.html' in partial_name %}
+            {{ footer_macro.footer() }}
+        {% elif 'contact_form.html' in partial_name %}
+            {% call contact_section_macro.contact_section(content.contact) %}
+                {{ contact_macro.contact_form(content.contact) }}
+            {% endcall %}
+        {% elif 'profile.html' in partial_name %}
+            {{ profile_macro.profile(request, brand, content.profile) }}
+        {% elif 'hero.html' in partial_name %}
+            {{ hero_macro.hero(request, content.hero) }}
+        {% else %}
+            <p>Componente no soportado para previsualización directa: {{ partial_name }}</p>
+        {% endif %}
     </div>
-    <script src="/static/js/app.js"></script>
+    <script src="{{ url_for('static', path='js/app.js') }}"></script>
 </div>
 </body>
 </html>
