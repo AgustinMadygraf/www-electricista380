@@ -1,4 +1,4 @@
-{% macro profile(request, name, role, description, avatar_path, benefits) %}
+{% macro profile(request, brand, profile_data) %}
 <section data-v-236fef00="" id="perfil" class="section-mobile c-home-profile" aria-labelledby="perfil-title">
     <div data-v-236fef00="" class="tw:container tw:mx-auto tw:px-4">
         <div data-v-236fef00="" class="tw:grid tw:grid-cols-1 tw:lg:grid-cols-12 tw:gap-8 tw:items-stretch">
@@ -6,11 +6,11 @@
                 <article data-v-236fef00="" class="c-home-panel c-home-profile__card">
                     <span data-v-236fef00="" class="c-home-eyebrow">Perfil profesional</span>
                     <div data-v-236fef00="" class="c-home-profile__avatar-wrap tw:flex">
-                        <img data-v-236fef00="" src="{{ request.url_for('static', path=avatar_path) }}" alt="Técnico a cargo de la implementación" class="c-home-profile__avatar" width="700" height="933" loading="lazy" decoding="async">
+                        <img data-v-236fef00="" src="{{ request.url_for('static', path=brand.technician.photo.src.replace('/static/', '')) }}" alt="{{ brand.technician.photo.alt }}" class="c-home-profile__avatar" width="{{ brand.technician.photo.width }}" height="{{ brand.technician.photo.height }}" loading="lazy" decoding="async">
                     </div>
-                    <h2 data-v-236fef00="" id="perfil-title" class="c-home-profile__name">{{ name }}</h2>
-                    <p data-v-236fef00="" class="c-home-profile__role">{{ role }}</p>
-                    <p data-v-236fef00="">{{ description }}</p>
+                    <h2 data-v-236fef00="" id="perfil-title" class="c-home-profile__name">{{ brand.technician.name }}</h2>
+                    <p data-v-236fef00="" class="c-home-profile__role">{{ brand.technician.role }}</p>
+                    <p data-v-236fef00="">DataMaq trabaja sobre captura automática de datos operativos, con foco en energía eléctrica, producción y variables críticas de seguimiento.</p>
                     <button data-v-236fef00="" type="button" class="tw:btn-primary c-home-profile__cta">Escribime directo por WhatsApp</button>
                 </article>
             </div>
@@ -19,7 +19,7 @@
                     <p data-v-236fef00="" class="c-home-profile__section-label">Enfoque técnico</p>
                     <p data-v-236fef00="" class="c-home-profile__detail-copy">El servicio combina relevamiento en campo, implementación técnica, integración inicial y acompañamiento para que los datos capturados puedan usarse con criterio en análisis, seguimiento o capacitación.</p>
                     <div data-v-236fef00="" class="c-home-profile__benefits-grid">
-                        {% for benefit in benefits %}
+                        {% for benefit in profile_data.bullets %}
                         <article data-v-236fef00="" class="c-home-profile__benefit-card">
                             <span data-v-236fef00="" class="c-home-profile__benefit-icon" aria-hidden="true"><i data-v-236fef00="" class="bi bi-check2-circle"></i></span>
                             <p data-v-236fef00="">{{ benefit }}</p>

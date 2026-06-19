@@ -1,27 +1,27 @@
-{% macro hero(request, background_image, eyebrow, title, subtitle, cta_text, urgency_text, trust_chips, signals) %}
-<section data-v-236fef00="" class="section-mobile c-home-hero c-home-hero--direct" aria-labelledby="hero-title" style="background-image: linear-gradient(180deg, rgba(var(--dm-surface-0-rgb), 0.42), rgba(var(--dm-bg-0-rgb), 0.96)), url('{{ request.url_for('static', path=background_image) }}');">
+{% macro hero(request, data) %}
+<section data-v-236fef00="" class="section-mobile c-home-hero c-home-hero--direct" aria-labelledby="hero-title" style="background-image: linear-gradient(180deg, rgba(var(--dm-surface-0-rgb), 0.42), rgba(var(--dm-bg-0-rgb), 0.96)), url('{{ request.url_for('static', path=data.image.src.replace('/static/', '')) }}');">
     <div data-v-236fef00="" class="tw:container tw:mx-auto tw:px-4">
         <div data-v-236fef00="" class="tw:grid tw:grid-cols-1 tw:lg:grid-cols-12 tw:gap-8 tw:items-end">
             <div data-v-236fef00="" class="tw:col-span-1 tw:lg:col-span-7">
                 <div data-v-236fef00="" class="c-home-hero__copy">
-                    <span data-v-236fef00="" class="c-home-eyebrow">{{ eyebrow }}</span>
-                    <h1 data-v-236fef00="" id="hero-title" class="c-home-hero__title">{{ title }}</h1>
-                    <p data-v-236fef00="" class="c-home-hero__subtitle">{{ subtitle }}</p>
+                    <span data-v-236fef00="" class="c-home-eyebrow">{{ data.badge }}</span>
+                    <h1 data-v-236fef00="" id="hero-title" class="c-home-hero__title">{{ data.title }}</h1>
+                    <p data-v-236fef00="" class="c-home-hero__subtitle">{{ data.subtitle }}</p>
                     <div data-v-236fef00="" class="c-home-hero__actions">
-                        <button data-v-236fef00="" type="button" class="tw:btn-primary c-home-hero__primary">{{ cta_text }}</button>
+                        <button data-v-236fef00="" type="button" class="tw:btn-primary c-home-hero__primary">{{ data.primaryCta.label }}</button>
                     </div>
                     <p data-v-236fef00="" class="c-home-hero__urgency" role="status">
                         <i data-v-236fef00="" class="bi bi-lightning-charge-fill" aria-hidden="true"></i>
-                        <span data-v-236fef00="">{{ urgency_text }}</span>
+                        <span data-v-236fef00="">{{ data.responseNote }}</span>
                     </p>
                     <div data-v-320ae45d="" data-v-236fef00="" class="c-home-hero__trust-inline" aria-label="Capacidades destacadas">
-                        {% for chip in trust_chips %}
-                        <span data-v-320ae45d="" class="c-home-hero__trust-chip">{{ chip }}</span>
+                        {% for benefit in data.benefits %}
+                        <span data-v-320ae45d="" class="c-home-hero__trust-chip">{{ benefit.text }}</span>
                         {% endfor %}
                     </div>
                     <ul data-v-236fef00="" class="c-home-hero__signals" aria-label="Condiciones operativas">
-                        {% for signal in signals %}
-                        <li data-v-236fef00="">{{ signal }}</li>
+                        {% for benefit in data.benefits %}
+                        <li data-v-236fef00="">{{ benefit.title }}: {{ benefit.text }}</li>
                         {% endfor %}
                     </ul>
                 </div>
@@ -29,7 +29,7 @@
             <div data-v-236fef00="" class="tw:col-span-1 tw:lg:col-span-5 tw:hidden tw:lg:block">
                 <article data-v-236fef00="" class="c-home-hero__media-card">
                     <p data-v-236fef00="" class="c-home-hero__media-label">Cobertura técnica activa</p>
-                    <img data-v-236fef00="" src="{{ request.url_for('static', path=background_image) }}" alt="Captura e integración de datos energéticos y operativos en entorno industrial" class="c-home-hero__image" width="900" height="700" fetchpriority="high" loading="eager" decoding="async">
+                    <img data-v-236fef00="" src="{{ request.url_for('static', path=data.image.src.replace('/static/', '')) }}" alt="{{ data.image.alt }}" class="c-home-hero__image" width="{{ data.image.width }}" height="{{ data.image.height }}" fetchpriority="high" loading="eager" decoding="async">
                 </article>
             </div>
         </div>

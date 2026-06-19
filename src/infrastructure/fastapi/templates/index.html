@@ -21,8 +21,8 @@
 {% endblock %}
 
 {% block main_content %}
-{{ hero_macro.hero(request, 'media/hero-energy.svg', 'Captura automática de datos operativos', 'Instalación e integración de equipos IoT para energía y producción', 'Implementación de soluciones para medir variables eléctricas y operativas, integrarlas a sistemas existentes y dejar una base técnica usable para seguimiento, diagnóstico y capacitación.', 'Escribime por WhatsApp', 'Base operativa: Garín (GBA Norte). El alcance se define según tablero, señales disponibles, conectividad, sistema destino y objetivo operativo.', ["Base operativa: Garín (GBA Norte). El alcance se define según tablero, señales disponibles, conectividad, sistema destino y objetivo operativo.", "Instalación de equipos IoT para captura de datos", "Asesoramiento técnico para análisis de datos"], ["Base operativa: Garín (GBA Norte). El alcance se define según tablero, señales disponibles, conectividad, sistema destino y objetivo operativo."]) }}
-{{ profile_macro.profile(request, 'Agustin Bustos', 'Sobre DataMaq', 'DataMaq trabaja sobre captura automática de datos operativos, con foco en energía eléctrica, producción y variables críticas de seguimiento.', 'media/tecnico-a-cargo.webp', ["Relevamiento en sitio y criterio de implementación.", "Instalación, integración y puesta en marcha para captura automática de datos.", "Asesoramiento y capacitaciones sobre Python, datos, bases de datos y APIs en contextos reales."]) }}
+{{ hero_macro.hero(request, content.hero) }}
+{{ profile_macro.profile(request, brand, content.profile) }}
 {% call section_macro.section_wrapper('servicios', 'Servicios técnicos sobre captura, integración y uso de datos', 'Servicios', 'Servicios orientados a captura automática de datos, integración técnica y formación aplicada sobre casos reales.', 'c-home-services') %}
 
 <div data-v-236fef00="" class="c-home-services__grid">
