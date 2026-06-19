@@ -22,6 +22,13 @@ export const initChatwoot = (configElement) => {
                     baseUrl: BASE_URL
                 });
                 window.openChatwoot = () => window.$chatwoot?.toggle("open");
+                
+                // Ocultar WhatsApp FAB si Chatwoot carga
+                const whatsappFab = document.getElementById('whatsapp-fab');
+                if (whatsappFab) {
+                    whatsappFab.classList.add('hidden');
+                    console.info("[ChatwootManager] WhatsApp FAB ocultado.");
+                }
             };
             g.onerror = () => console.error("[ChatwootManager] Error al cargar SDK.");
         })(document,"script");

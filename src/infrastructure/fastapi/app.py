@@ -5,6 +5,7 @@ from src.infrastructure.fastapi.dependencies import CachedStaticFiles
 # --- Inicialización de FastAPI ---
 
 app = FastAPI(title=config.APP_TITLE)
+app.state.config = config
 app.mount("/static", CachedStaticFiles(directory=config.STATIC_DIR), name="static")
 
 # --- Registro de Routers ---
